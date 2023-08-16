@@ -46,3 +46,25 @@
 .feature-item{
     padding:2.5rem;
 }
+
+@media screen and (max-width:920px){
+    #section1{
+        height:300px;
+    }
+    .text{
+        font-size:0.9rem;
+    }
+    .hero-content{
+        position:relative;
+        margin:auto;
+        right:auto;
+        width:200px;
+        box-sizing:content-box;
+    }
+    .features{
+        grid-template-columns:100%;
+    }
+    .subtitle{
+        font-size:1rem;
+    }
+}
