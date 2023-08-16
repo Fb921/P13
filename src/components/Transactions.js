@@ -7,14 +7,47 @@ import Header from "./Header.js"
 import Footer from "./Footer.js"
 import Transaction from "./Transaction.js"
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import authentify from "../services/authentify.js"
+
+import { useState } from 'react';
 import { useParams } from "react-router-dom";
 
+import {loggedOut,isLogged} from "../services/store_actions.js"
+
+
+
 function Transactions(props){
+    const [connected, setConnected] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [editName, setEditName] = useState(false);
 
     let { transtype } = useParams();
+    console.log(trans_datas);
+
+    let token = useSelector(state => state.token);
+    let fname = useSelector(state => state.fname);
+    let lname = useSelector(state => state.lname);
+
+    const dispatch = useDispatch();
+
+    authentify().then(e=>{
+        if(e.status == 200){
+            setConnected(true);
+            if(!fname || !lname){
+                let logged = isLogged(window.localStorage.getItem("token"),e.body.firstName,e.body.lastName);
+                dispatch(logged);
+            }
+        }else{
+            setConnected(false);            
+            dispatch({...loggedOut});
+        }
+        setLoading(false);
+    });
 
     return (<div>
-        <Header/>
+        <Header fname={fname}/>
         <main className="transactions_content">
             <div className="header">
                 <div>{transtype_datas[transtype].type} {transtype_datas[transtype].num}</div>

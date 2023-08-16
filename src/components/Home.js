@@ -11,7 +11,40 @@ import icon_chat from "../assets/icon-chat.png"
 import icon_money from "../assets/icon-money.png"
 import icon_security from "../assets/icon-security.png"
 
+import { useState } from 'react';
+
+//Backend function
+import authentify from "../services/authentify.js"
+
+import { useSelector, useDispatch } from 'react-redux';
+
+import {loggedOut,isLogged} from "../services/store_actions.js"
+
 function Home(){
+    const [connected, setConnected] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [editName, setEditName] = useState(false);
+
+    const dispatch = useDispatch();
+
+    let token = useSelector(state => state.token);
+    let fname = useSelector(state => state.fname);
+    let lname = useSelector(state => state.lname);
+    
+    authentify().then(e=>{
+        if(e.status == 200){
+            setConnected(true);
+            if(!fname || !lname){
+                let logged = isLogged(window.localStorage.getItem("token"),e.body.firstName,e.body.lastName);
+                dispatch(logged);
+            }
+        }else{
+            setConnected(false);            
+            dispatch({...loggedOut});
+        }
+        setLoading(false);
+    });
+
     return (
         <div>
             <Header></Header>
