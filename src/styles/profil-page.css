@@ -1,0 +1,66 @@
+main.profil{
+    min-height:calc(100vh - 64.38px - 76px);
+    background-color:#12002b;
+    box-sizing:border-box;
+    /* padding:0; */
+    /* padding-top:21.44px; */
+    display:flex;
+    flex-direction: column;
+}
+.profil .header{
+    margin-bottom:32px;
+}
+
+.profil h1{
+    text-align:center;
+    color:white;
+    /* margin:0;
+    margin-bottom:21.44px; */
+}
+
+.profil ._btn{
+    background:#00BC77;
+    color:white;
+    padding:10px;
+    text-decoration:none;
+    font-size:13.3333px;
+    font-weight:bold;
+    border-style:groove;
+    display:inline-block;
+    border:2px outset #00bc77;
+    cursor:pointer;
+}
+
+.profil .btn_container{
+    text-align:center;
+    margin-top:-10px;
+}
+.profil .btn_container div button{
+    width:100px;
+    text-align:center;
+    padding:5px;
+    box-sizing: border-box;
+    background:white;
+    color:#2c3e50;
+    font-weight:600;
+    cursor:pointer;
+}
+.profil .btn_container button:nth-child(1){
+    margin-right:5px;
+}
+.profil .btn_container button:nth-child(2){
+    margin-left:5px;
+}
+
+.profil input{
+    height:20px;
+    width:140px;
+    padding:5px
+}
+
+.profil input:nth-child(2){
+    margin-right:5px;
+}
+.profil input:nth-child(3){
+    margin-left:5px;
+}

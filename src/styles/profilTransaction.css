@@ -1,0 +1,28 @@
+.profil_transaction_container{
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    width:80%;
+    padding:1.5rem;
+    color:#2C3E50;
+    margin:auto;
+    margin-bottom:2rem;
+    align-items:center;
+    box-sizing:border-box;
+    border:1px solid black;
+}
+.profil_transaction_container .amount{
+    font-size:2.5rem;
+    font-weight:bold;
+}
+.profil_transaction_container button{
+    background:#00bc77;
+    border:2px outset #00bc77;
+    color:#fff;
+    margin-top:1rem;
+    width:200px;
+    font-weight:700;
+    padding:8px;
+    font-size:1.1rem;
+    cursor:pointer;
+}

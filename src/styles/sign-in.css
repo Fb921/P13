@@ -1,0 +1,77 @@
+body{
+    min-height:100vh;
+}
+.main{
+    flex: 1;
+    padding-top: 3rem;
+    min-height:calc(100vh - 64.38px - 76px);
+    box-sizing:border-box;
+}
+
+.bg-dark{
+    background-color: #12002b;
+}
+
+.sign-in-content{
+    box-sizing: border-box;
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align:center;
+}
+.sign-in-content h1{
+    text-align:center;
+}
+
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+.input-wrapper label{
+    font-weight: bold;
+    text-align:left;
+}
+.input-wrapper input{
+    padding: 5px;
+    text-align:left;
+    font-size: 1.2rem;
+}
+.sign-in-button{
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+*[data-display="false"]{
+    display:none;
+}
+*[data-display="true"]{
+    display:block;
+}
+
+.error_bad_creds{
+    font-size:12px;
+    color:red;
+    font-style:italic;
+    margin-top:15px;
+}
+
+.input-remember{
+    text-align:left;
+    display:flex;
+    align-items:center;
+}
+.input-remember label{
+    margin-left:0.25rem
+}

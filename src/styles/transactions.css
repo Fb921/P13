@@ -1,0 +1,34 @@
+main.transactions_content{
+    min-height:calc(100vh - 64.38px - 76px);
+    color:#2c3e50;
+    background-color:#dde2ea;
+    
+}
+.transactions_content .header{
+    text-align:center;
+    border:2px solid #bfc8d3;
+    padding:1.5rem;
+    background-color:#fff;
+    /* margin-bottom:4rem; */
+}
+
+.transactions_content .header .total_amount_container{
+    font-size:2.5rem;
+    font-weight:bold;
+}
+
+.transactions_content table{
+    width:80%;
+    margin:auto;
+    border-collapse:collapse;
+    margin-bottom:30px;
+}
+.transactions_content table th{
+    text-transform:uppercase;
+    font-weight:600;
+}
+
+.transaction_container{
+    padding-top:4rem;
+    display:flex;
+}

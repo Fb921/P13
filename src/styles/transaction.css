@@ -1,0 +1,50 @@
+.transaction_row{
+    background-color:#fff;
+    text-align:center;
+    border:1px solid #bfc8d3;
+    font-weight:600;
+    
+}
+table{
+    font-size:13px;
+}
+thead{
+    text-transform:uppercase;
+}
+thead th:not(th:nth-child(1)){
+    width:calc(25% - 12.5px) !important;
+    box-sizing:border-box;
+}
+.transaction_row td{
+    padding:1rem;
+    box-sizing:border-box;
+    width:27%;
+    vertical-align:top;
+}
+
+tbody td{
+    font-size:15px;
+}
+.transaction_row td:nth-child(1),.transaction_row th:nth-child(1){
+    width:40px;
+    max-width:40px;
+    min-width:40px;
+    box-sizing:border-box;
+    padding:20px 0;
+}
+
+.transaction_row .icon{
+    color:#2c3e50;
+    cursor:pointer;
+    display:inline-block;
+    font-size:20px;
+}
+
+.trans_infos{
+    margin:10px 0;
+    text-align:left;
+}
+
+.collapsible_container i{
+    margin-left:5px;
+}

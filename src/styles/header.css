@@ -1,0 +1,34 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+.logo{
+    font-size:0;
+}
+header img{
+    width:200px;
+    height:auto;
+}
+header nav{
+    display:flex;
+}
+header .active_link{
+    margin-right:0.5rem;
+}
+header .active_link:hover li{
+    text-decoration:underline;
+}
+header li{
+    display:inline-block;
+    font-weight:bold;
+    color:#2c3e50;
+}
+header li span{
+    color:transparent;
+}
+.user-icon{
+    color:#2c3e50;
+
+}

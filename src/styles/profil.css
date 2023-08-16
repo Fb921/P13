@@ -1,0 +1,20 @@
+h1{
+    text-align:center;
+    color:white;
+    margin-top:21.44px;
+    margin-bottom:21.44px;
+}
+
+._btn{
+    background:#00BC77;
+    color:white;
+    padding:10px;
+    text-decoration:none;
+    font-size:13.3333px;
+    font-weight:bold;
+    border-style:groove;
+}
+
+.btn_container{
+    text-align:center;
+}
