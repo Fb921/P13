@@ -28,7 +28,7 @@ function ProfilPage(){
     let token = useSelector(state => state.token);
     let fname = useSelector(state => state.fname);
     let lname = useSelector(state => state.lname);
-    
+
     authentify().then(e=>{
         if(e.status == 200){
             setConnected(true);
@@ -59,7 +59,7 @@ function ProfilPage(){
     }else{
         if(!connected){
             return(
-                <Navigate to='/sign-in'></Navigate>
+                <Navigate to='/login'></Navigate>
             )
         }else{
             return (

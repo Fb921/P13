@@ -4,6 +4,7 @@ import "../styles/home.css"
 //Components
 import Header from './Header.js';
 import Footer from './Footer.js';
+import HomeInfos from './HomeInfos.js';
 
 //Images
 import main_img from "../assets/bank-tree.jpeg"
@@ -20,6 +21,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {loggedOut,isLogged} from "../services/store_actions.js"
 
+
 function Home(){
     const [connected, setConnected] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -30,20 +32,26 @@ function Home(){
     let token = useSelector(state => state.token);
     let fname = useSelector(state => state.fname);
     let lname = useSelector(state => state.lname);
-    
-    authentify().then(e=>{
-        if(e.status == 200){
-            setConnected(true);
-            if(!fname || !lname){
-                let logged = isLogged(window.localStorage.getItem("token"),e.body.firstName,e.body.lastName);
-                dispatch(logged);
+
+    let chat_txt = "Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes.";
+    let money_txt = "The more you save with us, the higher your interest rate will be!";
+    let secu_txt = "We use top of the line encryption to make sure your data and money is always safe.";
+
+    if(token){
+        authentify().then(e=>{
+            if(e.status == 200){
+                setConnected(true);
+                if(!fname || !lname){
+                    let logged = isLogged(window.localStorage.getItem("token"),e.body.firstName,e.body.lastName);
+                    dispatch(logged);
+                }
+            }else{
+                setConnected(false);            
+                dispatch({...loggedOut});
             }
-        }else{
-            setConnected(false);            
-            dispatch({...loggedOut});
-        }
-        setLoading(false);
-    });
+            setLoading(false);
+        });
+    }
 
     return (
         <div>
@@ -59,29 +67,9 @@ function Home(){
                     </div>
                 </section>
                 <section className='features'>
-                    <div className="feature-item">
-                        <img src={icon_chat} alt="Chat Icon" className="feature-icon"/>
-                        <h3 className="feature-item-title">You are our #1 priority</h3>
-                        <p>
-                            Need to talk to a representative? You can get in touch through our
-                            24/7 chat or through a phone call in less than 5 minutes.
-                        </p>
-                    </div>
-                    <div className="feature-item">
-                        <img src={icon_money} alt="Chat Icon" className="feature-icon"/>
-                        <h3 className="feature-item-title">More savings means higher rates</h3>
-                        <p>
-                            The more you save with us, the higher your interest rate will be!
-                        </p>
-                    </div>
-                    <div className="feature-item">
-                        <img src={icon_security} alt="Chat Icon" className="feature-icon"/>
-                        <h3 className="feature-item-title">Security you can trust</h3>
-                        <p>
-                            We use top of the line encryption to make sure your data and money
-                            is always safe.
-                        </p>
-                    </div>
+                    <HomeInfos title="You are our #1 priority" icon={icon_chat} text={chat_txt}></HomeInfos>
+                    <HomeInfos title="More savings means higher rates" icon={icon_money} text={money_txt}></HomeInfos>
+                    <HomeInfos title="Security you can trust" icon={icon_security} text={secu_txt}></HomeInfos>
                 </section>
             </main>
             <Footer></Footer>        

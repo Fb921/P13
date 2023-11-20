@@ -24,7 +24,6 @@ function Transactions(props){
     const [editName, setEditName] = useState(false);
 
     let { transtype } = useParams();
-    console.log(trans_datas);
 
     let token = useSelector(state => state.token);
     let fname = useSelector(state => state.fname);
@@ -32,19 +31,21 @@ function Transactions(props){
 
     const dispatch = useDispatch();
 
-    authentify().then(e=>{
-        if(e.status == 200){
-            setConnected(true);
-            if(!fname || !lname){
-                let logged = isLogged(window.localStorage.getItem("token"),e.body.firstName,e.body.lastName);
-                dispatch(logged);
+    if(token){
+        authentify().then(e=>{
+            if(e.status == 200){
+                setConnected(true);
+                if(!fname || !lname){
+                    let logged = isLogged(window.localStorage.getItem("token"),e.body.firstName,e.body.lastName);
+                    dispatch(logged);
+                }
+            }else{
+                setConnected(false);            
+                dispatch({...loggedOut});
             }
-        }else{
-            setConnected(false);            
-            dispatch({...loggedOut});
-        }
-        setLoading(false);
-    });
+            setLoading(false);
+        });
+    }
 
     return (<div>
         <Header fname={fname}/>
@@ -67,7 +68,7 @@ function Transactions(props){
                     </thead>
                     <tbody>
                         {
-                            trans_datas.map(t =>{ return (<Transaction date={t.date} desc={t.desc} amount={t.amount} balance={t.balance} collapse={false} cat="Food" type='Electronic'/>)})
+                            trans_datas.map((t,i) =>{ return (<Transaction key={"transaction_"+i} date={t.date} desc={t.desc} amount={t.amount} balance={t.balance} collapse={false} cat="Food" type='Electronic'/>)})
                         }
                     </tbody>
                 </table>

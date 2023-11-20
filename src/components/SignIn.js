@@ -27,8 +27,6 @@ function SignIn(){
             }
         });
     }
-    
-    
 
     return (
         <div>
@@ -39,17 +37,17 @@ function SignIn(){
                 <h1>Sign In</h1>
                 <form>
                     <div className="input-wrapper">
-                        <label for="username">Username</label><input type="text" id="username" onChange={(e)=>{setUserEmail(e.target.value)}}/>
+                        <label htmlFor="username">Username</label><input type="text" id="username" onChange={(e)=>{setUserEmail(e.target.value)}}/>
                     </div>
                     <div className="input-wrapper">
-                        <label for="password">Password</label><input type="password" id="password" onChange={(e)=>{setUserPass(e.target.value)}}/>
+                        <label htmlFor="password">Password</label><input type="password" id="password" onChange={(e)=>{setUserPass(e.target.value)}}/>
                     </div>
                     <div className="input-remember">
-                        <input type="checkbox" id="remember-me"/><label for="remember-me">Remember me</label>
+                        <input type="checkbox" id="remember-me"/><label htmlFor="remember-me">Remember me</label>
                     </div>
                     <div className="error_bad_creds" data-display={errorDisplay}>Les infos que vous avez saisie ne sont pas valides</div>
                     {
-                        connected?<Navigate to="/profil" replace={true}/>:<div className="sign-in-button" onClick={logUserIn} aria-label="sign-in_btn">Sign In</div>
+                        connected?<Navigate to="/profile" replace={true}/>:<div className="sign-in-button" onClick={logUserIn} aria-label="sign-in_btn">Sign In</div>
                     }
                 </form>
             </section>

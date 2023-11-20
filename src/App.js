@@ -10,8 +10,8 @@ function App() {
           <Router> 
               <Routes>
                   <Route path="/" element={<Home/>} />
-                  <Route path="/sign-in" element={<SignIn/>} />
-                  <Route path="/profil" element={<ProfilPage/>} />
+                  <Route path="/login" element={<SignIn/>} />
+                  <Route path="/profile" element={<ProfilPage/>} />
                   <Route path="/transactions/:transtype" element={<Transactions/>} />
                   <Route path="*" element={<Home />} />
               </Routes>
