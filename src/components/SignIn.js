@@ -45,7 +45,7 @@ function SignIn(){
                     <div className="input-remember">
                         <input type="checkbox" id="remember-me"/><label htmlFor="remember-me">Remember me</label>
                     </div>
-                    <div className="error_bad_creds" data-display={errorDisplay}>Les infos que vous avez saisie ne sont pas valides</div>
+                    <div className="error_bad_creds" data-display={errorDisplay}>Les infos que vous avez saisi ne sont pas valides</div>
                     {
                         connected?<Navigate to="/profile" replace={true}/>:<div className="sign-in-button" onClick={logUserIn} aria-label="sign-in_btn">Sign In</div>
                     }
